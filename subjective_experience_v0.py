@@ -55,7 +55,7 @@ class Experiment():
         
         ## target stimuli
         self.stim_size = 200
-        self.stim_frames_at_120_Hz = 50
+        self.stim_frames_at_120_Hz = 4
         self.stimulus_list = ['stimulus_0', 'stimulus_0',
                               'stimulus_1', 'stimulus_1']
         
@@ -335,10 +335,11 @@ class Experiment():
                 elif this_key == 'q':
                     self.window.close()
                     core.quit()
-                if self.send_triggers:
-                    self.send_trigger_value(
-                        'response_' + self.objective_response)
+   
                 event.clearEvents('mouse')
+        if self.send_triggers:
+            self.send_trigger_value(
+                'response_' + self.objective_response)
         self.objective_response_time = clock.getTime()
         
         self.window.flip()
@@ -375,10 +376,11 @@ class Experiment():
                 elif this_key == 'q':
                     self.window.close()
                     core.quit()
-                if self.send_triggers:
-                    self.send_trigger_value(
-                        'response_PAS' + self.subjective_response)    
+           
                 event.clearEvents('mouse')
+        if self.send_triggers:
+             self.send_trigger_value(
+                 'response_PAS' + self.subjective_response)    
         self.subjective_response_time = clock.getTime()
         self.window.flip()
     
